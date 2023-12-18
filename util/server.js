@@ -1,4 +1,4 @@
-import * as http from 'http';
+import * as http from 'https';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -18,8 +18,13 @@ for(let i = 0; i < process.argv.length; ++i) {
   } 
 }
 
+const options = {
+  key: fs.readFileSync('./localhost-key.pem'),
+  cert: fs.readFileSync('./localhost.pem'),
+};
+
 http
-  .createServer(function (request, response) {
+  .createServer(options, function (request, response) {
 
     response.setHeader("Cross-Origin-Opener-Policy", "same-origin");
     response.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
