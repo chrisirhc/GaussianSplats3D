@@ -28,6 +28,17 @@
 </head>
 
 <body>
+  <!-- <script type="module">
+    import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "https://unpkg.com/@lookingglass/webxr@0.1.9?module"
+    const config = LookingGlassConfig
+    config.tileHeight = 512
+    config.numViews = 45
+    config.targetY = 0
+    config.targetZ = 0
+    config.targetDiam = 3
+    config.fovy = (40 * Math.PI) / 180
+    new LookingGlassWebXRPolyfill()
+  </script> -->
   <script type="module">
     import * as GaussianSplats3D from 'gaussian-splats-3d';
     import * as THREE from 'three';
@@ -48,6 +59,7 @@
       const renderer = new THREE.WebGLRenderer({
           antialias: false
       });
+      // renderer.xr.enabled = true;
       renderer.setSize(renderWidth, renderHeight);
       rootElement.appendChild(renderer.domElement);
 
@@ -68,11 +80,11 @@
 
     function setupScene() {
       const scene = new THREE.Scene();
-      const boxColor = 0xBBBBBB;
-      const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
-      const boxMesh = new THREE.Mesh(boxGeometry, new THREE.MeshBasicMaterial({'color': boxColor}));
-      scene.add(boxMesh);
-      boxMesh.position.set(3, 2, 2);
+      // const boxColor = 0xBBBBBB;
+      // const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+      // const boxMesh = new THREE.Mesh(boxGeometry, new THREE.MeshBasicMaterial({'color': boxColor}));
+      // scene.add(boxMesh);
+      // boxMesh.position.set(3, 2, 2);
       return scene;
     }
 
@@ -94,16 +106,16 @@
     const viewer = new GaussianSplats3D.DropInViewer();
     viewer.addScenesFromFiles([
         {
-          'path': 'assets/data/garden/garden.ksplat',
-          'splatAlphaRemovalThreshold': 20,
+          'path': 'assets/gs_flower.ply',
+          // 'splatAlphaRemovalThreshold': 20,
         },
-        {
-          'path': 'assets/data/bonsai/bonsai_trimmed.ksplat',
-          'rotation': [-0.14724434, -0.0761755, 0.1410657, 0.976020],
-          'scale': [1.5, 1.5, 1.5],
-          'position': [-3, -2, -3.2],
-          'splatAlphaRemovalThreshold': 20,
-        }
+        // {
+        //   'path': 'assets/data/bonsai/bonsai_trimmed.ksplat',
+        //   'rotation': [-0.14724434, -0.0761755, 0.1410657, 0.976020],
+        //   'scale': [1.5, 1.5, 1.5],
+        //   'position': [-3, -2, -3.2],
+        //   'splatAlphaRemovalThreshold': 20,
+        // }
       ], true);
     scene.add(viewer);
 
