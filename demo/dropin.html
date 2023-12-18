@@ -122,9 +122,8 @@
       ], true);
     scene.add(viewer);
 
-    requestAnimationFrame(update);
+    renderer.setAnimationLoop(update);
     function update() {
-      requestAnimationFrame(update);
       controls.update();
       renderer.render(scene, camera);
     }
