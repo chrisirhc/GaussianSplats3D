@@ -11,6 +11,7 @@
     {
         "imports": {
             "three": "./lib/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/",
             "gaussian-splats-3d": "./lib/gaussian-splats-3d.module.js"
         }
     }
@@ -42,6 +43,7 @@
   <script type="module">
     import * as GaussianSplats3D from 'gaussian-splats-3d';
     import * as THREE from 'three';
+    import { VRButton } from "three/addons/webxr/VRButton.js";
 
     function setupRenderer() {
       const renderWidth = 800;
@@ -59,7 +61,8 @@
       const renderer = new THREE.WebGLRenderer({
           antialias: false
       });
-      // renderer.xr.enabled = true;
+      document.body.appendChild( VRButton.createButton( renderer ) );
+      renderer.xr.enabled = true;
       renderer.setSize(renderWidth, renderHeight);
       rootElement.appendChild(renderer.domElement);
 
