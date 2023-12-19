@@ -44,12 +44,12 @@
       const renderHeight = 600;
 
       const rootElement = document.createElement('div');
-      rootElement.style.width = renderWidth + 'px';
-      rootElement.style.height = renderHeight + 'px';
-      rootElement.style.position = 'relative';
-      rootElement.style.left = '50%';
-      rootElement.style.top = '50%';
-      rootElement.style.transform = 'translate(-50%, -50%)';
+      // rootElement.style.width = renderWidth + 'px';
+      // rootElement.style.height = renderHeight + 'px';
+      // rootElement.style.position = 'relative';
+      // rootElement.style.left = '50%';
+      // rootElement.style.top = '50%';
+      // rootElement.style.transform = 'translate(-50%, -50%)';
       document.body.appendChild(rootElement);
 
       const renderer = new THREE.WebGLRenderer({
@@ -57,7 +57,7 @@
       });
       document.body.appendChild( VRButton.createButton( renderer ) );
       renderer.xr.enabled = true;
-      renderer.setSize(renderWidth, renderHeight);
+      // renderer.setSize(renderWidth, renderHeight);
       rootElement.appendChild(renderer.domElement);
 
       return {
