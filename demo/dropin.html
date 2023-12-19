@@ -118,7 +118,10 @@
 
     renderer.setAnimationLoop(update);
     function update() {
-      controls.update();
+      const gl = renderer.getContext()
+      const session = renderer.xr.getSession()
+      gl.bindFramebuffer(gl.FRAMEBUFFER, session?.renderState?.baseLayer?.framebuffer ?? null)
+      // controls.update();
       renderer.render(scene, camera);
     }
   </script>
