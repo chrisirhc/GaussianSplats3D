@@ -12,6 +12,7 @@
         "imports": {
             "three": "./lib/three.module.js",
             "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/",
+            "@lookingglass/webxr": "./lib/webxr.module.js",
             "gaussian-splats-3d": "./lib/gaussian-splats-3d.module.js"
         }
     }
@@ -30,7 +31,7 @@
 
 <body>
   <script type="module">
-    import { LookingGlassWebXRPolyfill } from "https://unpkg.com/@lookingglass/webxr@0.4.0/dist/bundle/webxr.js"
+    import { LookingGlassWebXRPolyfill } from "@lookingglass/webxr"
     new LookingGlassWebXRPolyfill()
   </script>
   <script type="module">
